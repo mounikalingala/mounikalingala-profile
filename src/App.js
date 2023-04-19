@@ -12,9 +12,10 @@ function App() {
     subject: "",
     message:"",
   })
-const {subject,message}=data
+  const { subject, message } = data
+  
   const onChangeData = event => {
-     setData({...data,[event.target.name]:event.target.value})
+    setData({ ...data, [event.target.name]: event.target.value })
   }
 
   const onSendMail = event => {
@@ -26,12 +27,12 @@ const {subject,message}=data
      }, (error) => {
          // show the user an error
      });
-
+    event.target.reset()
   }
 
   return (
     // bg container
-    <div className='bg-contain bg-[#fca519] h-100vh p-20'>
+    <div className='bg-contain bg-[#fb923c] h-100vh p-20'>
       {/* bio profile container */}
       <div className="app-container flex flex-row justify-between">
         {/* bio container */}
@@ -54,7 +55,7 @@ const {subject,message}=data
             <p className='ml-4 text-[#431407]'>Hyderabad </p>
           </div>
         </div>
-        <img src='https://res.cloudinary.com/dblomc9cr/image/upload/v1680763794/WhatsApp_Image_2023-04-06_at_12.18.16_PM_lridqm.jpg' className='rounded-full w-[200px] h-[200px]' />
+        <img src='https://res.cloudinary.com/dblomc9cr/image/upload/v1680763794/WhatsApp_Image_2023-04-06_at_12.18.16_PM_lridqm.jpg' className='rounded-full w-[200px] h-[200px]' alt="" />
       </div>
       <Tabs>
        <div className='flex flex-row justify-start mt-8'>
@@ -76,11 +77,11 @@ const {subject,message}=data
                 <TabPanel>    
                   <p className='text-[#7c2d12] mb-10 mt-4 text-center font-bold-500 text-3xl'>Education</p>
                   <div className='list-disc text-left ml-20 mt-15' >
-                    <li>Completed MERN Stack course in NxtWave in the year of 2022</li>
-                    <li>Completed Master of Business Administration in HR specialization in Avanthi Institute of Engineering and Technology in the year of 2018 - 2021</li>
-                    <li>Completed Bachelor of Science [B.Sc] in Computer Science specialization in Pragathi Degree Collage in the year of 2015 - 2018</li>
-                    <li>Completed Intermediate [M.P.C] in Chaithanya Junior Collage in the year of 2013 - 2015 </li>
-                    <li>Completed My Secondary School Certificate in Zilla Parishath Unnatha Patashala Thangadapally</li>
+                    <li>MERN Stack course in NxtWave in the year of 2022</li>
+                    <li>Master of Business Administration in HR specialization in Avanthi Institute of Engineering and Technology in the year of 2018 - 2021</li>
+                    <li>Bachelor of Science [B.Sc] in Computer Science specialization in Pragathi Degree Collage in the year of 2015 - 2018</li>
+                    <li>Intermediate [M.P.C] in Chaithanya Junior Collage in the year of 2013 - 2015 </li>
+                    <li>Secondary School Certificate in Zilla Parishath Unnatha Patashala Thangadapally in the year of 2012-2013</li>
                     </div>
                 </TabPanel>
                </div>
@@ -117,7 +118,7 @@ Restaurants including with detailed information about restaurant and food and us
                       <li className=' font-bold text-bold'>Frontend: <span className='text-gray-800 font-bold-normal'>HTML, CSS, Bootstrap, JavaScript, React.js</span></li>
                       <li className='font-bold text-bold'>Backend: <span className='text-gray-800 font-bold-normal'>Python, Express, Node.js</span></li>
                       <li className=' font-bold text-bold'>DataBase: <span className='text-gray-800 font-bold-normal'>SQLite, MongoDB</span></li>
-                      <li>Good Communication Skills</li>  
+                      <li className=' font-bold text-bold'>Other tools: <span className='text-gray-800 font-bold-normal'>Git, Github</span></li> 
                   </div>
                 </TabPanel>
                 </div>
@@ -132,9 +133,9 @@ Restaurants including with detailed information about restaurant and food and us
         <form onSubmit={onSendMail} autoComplete='"off'>
           <p className="text-center text-3xl text-[#7c2d12] mb-6">Send Email...!</p>
         <label className="text-sm font-bold ">Subject: </label><br/>
-        <input className="mt-1 w-[500px] mb-4 hover:text-[#431407] border rounded-md border-[#7c2d12] bg-transparent hover:bg-orange-400 outline-none text-white p-1 pl-3" type='text' name='subject' value={subject} onChange={onChangeData} /><br/>
+        <input className="mt-1 w-[500px] mb-4 hover:text-[#431407] border rounded-md border-[#7c2d12] bg-transparent outline-none text-white p-1 pl-3" type='text' name='subject' value={subject} onChange={onChangeData} /><br/>
         <label className="text-sm w-4/5 font-bold ">message: </label><br/>
-        <input type="text" className="mt-1 w-[480px] h-28 box-content text-orange-900 hover:text-orange-900 mb-4 border rounded-md border-[#7c2d12] bg-transparent hover:bg-orange-400 outline-none text-white pt-0 break-words pl-3" name='message' value={message} onChange={onChangeData} /><br/>
+        <input type="text" className="mt-1 w-[480px] h-28 box-content text-orange-900 hover:text-orange-900 mb-4 border rounded-md border-[#7c2d12] bg-transparent outline-none text-white pt-0 break-words pl-3" name='message' value={message} onChange={onChangeData} /><br/>
         <button type='submit' className='ml-[200px] m-8 p-3 w-24 hover:text-white hover:border-0 hover:bg-[#7c2d12] bg-transparent border rounded-md border-[#7c2d12]' >Send</button>
         </form>
       </div>
